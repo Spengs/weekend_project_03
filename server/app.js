@@ -10,10 +10,10 @@ app.set('port', process.env.PORT || 3000);
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.post('/operations', function(req, res){
-  res.sendStatus(200);
   var ops = req.body;
   console.log(ops);
   operations.push(ops);
+  res.sendStatus(200);
 })
 
 app.get('/operations', function(req, res){

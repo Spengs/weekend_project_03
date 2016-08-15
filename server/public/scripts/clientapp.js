@@ -2,7 +2,7 @@ $(document).ready(function(){
   console.log("working")
   $('.results-container').parent().on('click', '#clearRes', clearResults);
   getStuff();
-  $('#calcForm').on('submit', function(){
+  $('#calcForm').on('click', '#add', function(){
     event.preventDefault();
     console.log("submit works")
     var calcVals = {};
@@ -11,6 +11,7 @@ $(document).ready(function(){
       calcVals[field.name] = field.value;
       console.log(calcVals);
     });
+    calcVals.operator = 'addition';
     $.ajax({
       type: 'POST',
       url: '/operations',
@@ -24,6 +25,7 @@ $(document).ready(function(){
       }
     })
   });
+
 
   function getStuff(){
       $.ajax({
