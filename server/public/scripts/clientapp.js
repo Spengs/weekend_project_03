@@ -1,5 +1,6 @@
 $(document).ready(function(){
   console.log("working")
+  $('.results-container').parent().on('click', '#clearRes', clearResults);
   getStuff();
   $('#calcForm').on('submit', function(){
     event.preventDefault();
@@ -34,7 +35,9 @@ $(document).ready(function(){
           // console.log();
           $('.results-container').empty();
           operations.forEach(function(calcVals){
-            // parseInt()
+             parseInt(calcVals.x);
+             parseInt(calcVals.y);
+             console.log(calcVals);
             $('.results-container').append('<div>' + calcVals.x + calcVals.y +'</div>');
           });
         },
@@ -44,3 +47,7 @@ $(document).ready(function(){
       });
     }
 });
+
+function clearResults(){
+  $('.results-container').empty();
+}

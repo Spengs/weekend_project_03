@@ -12,7 +12,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.post('/operations', function(req, res){
   res.sendStatus(200);
   var ops = req.body;
-  // parseInt(ops);
   console.log(ops);
   operations.push(ops);
 })
