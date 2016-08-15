@@ -3,11 +3,23 @@ var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
 
+var operations = [];
+
 app.set('port', process.env.PORT || 3000);
 
 app.use(bodyParser.urlencoded({extended: true}));
 
+app.post('/operations', function(req, res){
+  res.sendStatus(200);
+  var ops = req.body;
+  // parseInt(ops);
+  console.log(ops);
+  operations.push(ops);
+})
 
+app.get('/operations', function(req, res){
+  res.send(operations);
+})
 
 app.get('/*', function(req, res) {
   var file = req.params[0] || '/views/index.html';
